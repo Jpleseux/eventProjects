@@ -1,0 +1,23 @@
+# Calculadora de IMC
+
+Esta é uma simples calculadora de Índice de Massa Corporal (IMC) feita em HTML, CSS e JavaScript.
+
+## Funcionalidades
+
+- Calcula o IMC com base no peso e altura fornecidos pelo usuário.
+- Classifica o resultado do IMC de acordo com a tabela padrão.
+- Permite ao usuário inserir os valores de peso e altura.
+- Substitui automaticamente vírgulas por pontos nos valores inseridos.
+
+## Como usar
+
+1. Abra o arquivo `index.html` em qualquer navegador web.
+2. Insira seu peso (em quilogramas) no campo "Peso (kg)".
+3. Insira sua altura (em metros) no campo "Altura (m)".
+4. Clique no botão "Calcular" para ver seu IMC e a classificação correspondente.
+
+## Como funciona
+
+- O IMC é calculado dividindo o peso (em kg) pela altura ao quadrado (em metros).
+- Os valores são arredondados para duas casas decimais.
+- Os resultados são exibidos na tela com a classificação correspondente de acordo com a tabela de IMC.

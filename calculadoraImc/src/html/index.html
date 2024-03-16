@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora IMC</title>
+    <link rel="stylesheet" href="../../public/style/index.css">
+</head>
+<body>
+    <div class="calculator">
+        <h1>Calculadora de IMC</h1>
+            <label for="weight">Peso (kg):</label><br>
+            <input type="text" id="weight" name="weight"><br>
+            <label for="height">Altura (m):</label><br>
+            <input type="text" id="height" name="height"><br><br>
+            <button class="submit" onclick="submitForm()">Calcular</button>
+        <div id="result"></div>
+    </div>    
+</body>
+<script>
+    function submitForm() {
+        var weightInput = document.getElementById('weight');
+        var heightInput = document.getElementById('height');
+        var weight = parseFloat(weightInput.value.replace(',', '.'));
+        var height = parseFloat(heightInput.value.replace(',', '.'));
+
+        var resultDiv = document.getElementById('result');
+        if (weight && height) {
+            var imc = weight / (height * height);
+            resultDiv.innerHTML = '<p>Seu IMC é: ' + imc.toFixed(2) + ', e você está ' + classifyIMC(imc) + '</p>';
+        } else {
+            resultDiv.innerHTML = '<p>Preencha todos os campos!</p>';
+        }
+    }
+    
+    function classifyIMC(imc) {
+        if (imc < 18.5) {
+            return "com baixo do peso";
+        } else if (imc >= 18.5 && imc < 25.0) {
+            return "com peso normal";
+        } else if (imc >= 25.0 && imc < 30.0) {
+            return "com sobrepeso";
+        } else if (imc >= 30.0 && imc < 35.0) {
+            return "com obesidade grau 1 (leve)";
+        } else if (imc >= 35.0 && imc < 40.0) {
+            return "com obesidade grau 2 (moderada)";
+        } else {
+            return "com obesidade grau 3 (mórbida)";
+        }
+    }
+</script>
+</html>
