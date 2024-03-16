@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de moedas</title>
+    <link rel="stylesheet" href="../../public/index.css">
+</head>
+<body>
+    <div class="calculator">
+        <h1>Conversor de moedas</h1>
+        <label for="value">Valor:</label><br>
+        <input type="text" id="value" name="value"><br>
+        <label for="currencyOrigin">Moeda de Origem:</label><br>
+        <select id="currencyOrigin" name="currencyOrigin">
+            <option value="USD">Dólar dos Estados Unidos (USD)</option>
+            <option value="EUR">Euro (EUR)</option>
+            <option value="GBP">Libra Esterlina (GBP)</option>
+            <option value="JPY">Iene Japonês (JPY)</option>
+        </select>
+        <label for="currencyDestiny">Moeda de Destino:</label><br>
+        <select id="currencyDestiny" name="currencyDestiny">
+            <option value="USD">Dólar dos Estados Unidos (USD)</option>
+            <option value="EUR">Euro (EUR)</option>
+            <option value="GBP">Libra Esterlina (GBP)</option>
+            <option value="JPY">Iene Japonês (JPY)</option>
+        </select>
+        <button class="submit" onclick="convert()">Calcular</button>
+        <div id="result"></div>
+    </div>    
+</body>
+<script>
+    async function convert() {
+        var value = parseFloat(document.getElementById('value').value);
+        var currencyOrigin = document.getElementById('currencyOrigin').value;
+        var currencyDestiny = document.getElementById('currencyDestiny').value;
+        var valueCurrencyOrigin = await getValueFromApi(currencyOrigin);
+        var valueCurrencyDestiny = await getValueFromApi(currencyDestiny);
+        var resultDiv = document.getElementById('result');
+        const result = (value / valueCurrencyDestiny) * valueCurrencyOrigin;
+        resultDiv.innerText = `Valor convertido: ${result.toFixed(2)}`;
+    }
+
+    async function getValueFromApi(currency){
+        try {
+            const response = await fetch(`https://economia.awesomeapi.com.br/${currency}/1`);
+            const data = await response.json();
+            return parseFloat(data[0].high);
+        } catch (error) {
+            console.error('Erro ao buscar taxa de câmbio:', error);
+            throw error;
+        }
+    }
+</script>
+</html>

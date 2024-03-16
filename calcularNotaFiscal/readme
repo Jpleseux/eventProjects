@@ -1,0 +1,12 @@
+# Calculadora de Nota Fiscal
+
+Uma aplicação simples em HTML, CSS e JavaScript para calcular os valores de impostos em uma nota fiscal brasileira.
+
+## Funcionalidades
+
+- Calcula os valores de ICMS, IPI, PIS e COFINS com base no valor original fornecido.
+- Exibe os valores calculados e o valor total da nota fiscal.
+- Formata os valores exibidos para o formato brasileiro de moeda (R$ 123.456,00).
+
+## Como usar
+- Clone esse arquivo vá até o arquivo index.html e executeo

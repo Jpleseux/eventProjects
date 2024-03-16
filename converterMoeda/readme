@@ -1,0 +1,11 @@
+# Conversor de Moedas
+
+Um simples conversor de moedas que utiliza a API da [AwesomeAPI](https://docs.awesomeapi.com.br/) para obter as taxas de câmbio em tempo real e realizar conversões entre diferentes moedas.
+
+## Funcionalidades
+
+- Conversão entre quatro moedas principais: Dólar dos Estados Unidos (USD), Euro (EUR), Libra Esterlina (GBP) e Iene Japonês (JPY).
+- Entrada do valor a ser convertido.
+- Seleção da moeda de origem e da moeda de destino.
+- Cálculo da conversão com base nas taxas de câmbio atualizadas da AwesomeAPI.
+- Exibição do resultado da conversão.
