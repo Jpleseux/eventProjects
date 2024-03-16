@@ -8,29 +8,14 @@ Certifique-se de ter o Docker instalado em sua máquina.
 
 ## Instalação e Uso
 
-1. Clone este repositório:
-
-    ```bash
-    git clone https://github.com/seu_usuario/seu_projeto.git
-    ```
-
-2. Navegue até o diretório do projeto:
-
-    ```bash
-    cd seu_projeto
-    ```
-
-3. Construa a imagem Docker:
-
-    ```bash
-    docker build -t seu_projeto .
-    ```
+1. Construa a imagem
+    comando: docker compose up --build
+2.após isso execute o bash 
+    comando: docker compose exec app bash
+3.E por final execute o arquivo:
+    comando: python __main__.py
 
 4. Execute o contêiner:
-
-    ```bash
-    docker run --rm seu_projeto
-    ```
 
 Isso criará e executará um contêiner Docker contendo o executável do seu projeto.
 

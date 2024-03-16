@@ -1,10 +1,43 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
+import Auth from './Auth.tsx'
 import './index.css'
-
-ReactDOM.createRoot(document.getElementById('root')!).render(
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import SignUp from './pages/authPages/signUp.tsx'
+import { GatewayProvider } from './gateway/gatewayContext.tsx'
+import Login from './pages/authPages/Login.tsx'
+import Home from './Home.tsx'
+import Index from './pages/home/index.tsx'
+const router = createBrowserRouter([
+  {
+    path:"/",
+    element: <Auth />,
+    children:[
+      {
+        path: "/signup",
+        element: <SignUp/>
+      },
+      {
+        path: "/",
+        element: <Login />
+      }
+    ]
+  },
+  {
+    path: "/home",
+    element: <Home />,
+    children: [
+      {
+        path: "index",
+        element: <Index />
+      },
+    ]
+  }
+])
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <App />
+    <GatewayProvider >
+      <RouterProvider router={router} />
+    </GatewayProvider>
   </React.StrictMode>,
 )
