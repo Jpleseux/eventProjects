@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Nota Fiscal</title>
+    <link rel="stylesheet" href="../../public/index.css">
+</head>
+<body>
+    <div class="calculator">
+        <h1>Calculadora Nota Fiscal</h1>
+        <label for="weight">Valor original (R$):</label><br>
+        <input type="text" id="value" name="value"><br>
+        <button class="submit" onclick="submitForm()">Calcular</button>
+        <div id="result"></div>
+    </div>    
+</body>
+<script>
+    function submitForm() {
+        var valueNFe = document.getElementById('value').value;
+        var resultDiv = document.getElementById('result');
+        valueNFe = parseFloat(formateNumbers(valueNFe));
+        if (valueNFe) {
+            const valorICMS = (valueNFe * 0.175).toFixed(2);
+            const valorIPI = (valueNFe * 0.07).toFixed(2);
+            const valorPIS = (valueNFe * 0.0375).toFixed(2);
+            const valorCOFINS = (valueNFe * 0.04).toFixed(2);
+            const valorTotal = (parseFloat(valueNFe) + parseFloat(valorICMS)).toFixed(2);
+
+            resultDiv.innerHTML = `
+            <p>o valor do ICMS é R$: ${valorICMS.replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p>
+            <br>
+            <p>o valor do IPI é R$: ${valorIPI.replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p>
+            <br>
+            <p>o valor do PIS é R$: ${valorPIS.replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p>
+            <br>
+            <p>o valor do COFINS é R$: ${valorCOFINS.replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p>
+            <br>
+            <h3>o valor total da nota fiscal é R$ ${valorTotal.replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, ".")} </h3>
+            `;
+        } else {
+            resultDiv.innerHTML = '<p>Preencha todos os campos!</p>';
+        }
+    }
+    function formateNumbers(number) {
+        number = number.replace(',', '.');
+        const pontoIndex = number.lastIndexOf('.');
+        const parteInteira = number.slice(0, pontoIndex).replace(/\./g, '');
+        const parteDecimal = number.slice(pontoIndex);
+        return parteInteira + parteDecimal;
+    }
+</script>
+</html>
