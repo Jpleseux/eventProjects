@@ -1,0 +1,39 @@
+# Seu Projeto
+
+Este é um projeto Python Dockerizado que inclui a criação de um executável a partir de um script Python usando o PyInstaller.
+
+## Pré-requisitos
+
+Certifique-se de ter o Docker instalado em sua máquina.
+
+## Instalação e Uso
+
+1. Clone este repositório:
+
+    ```bash
+    git clone https://github.com/seu_usuario/seu_projeto.git
+    ```
+
+2. Navegue até o diretório do projeto:
+
+    ```bash
+    cd seu_projeto
+    ```
+
+3. Construa a imagem Docker:
+
+    ```bash
+    docker build -t seu_projeto .
+    ```
+
+4. Execute o contêiner:
+
+    ```bash
+    docker run --rm seu_projeto
+    ```
+
+Isso criará e executará um contêiner Docker contendo o executável do seu projeto.
+
+## OBS
+
+Não consegui colocar a função de copiar arquivo ele dava um erro no docker e linux e no final resolvi passar para a agenda
