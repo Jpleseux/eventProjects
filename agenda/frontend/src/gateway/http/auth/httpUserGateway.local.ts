@@ -1,4 +1,3 @@
-import { ResendEmailVerifyAccountUsecase } from './../../../../../backend/src/@modules/auth/core/register/usecases/resendEmailVerifyAccount.usecase';
 import { UserEntity } from "../../../entities/auth/User.entity";
 import httpClient from "../../../http/httpClient";
 import { userGateway } from "../../interfaces/auth/userGateway";
@@ -29,9 +28,9 @@ export class HttpUserGateway implements userGateway {
         if (response && response.status < 300) {
             const userRes =  new UserEntity({
                 email: response.data.user.email,
-                userName: response.data.user.userName,
-                phone_number: response.data.user.phone_number,
-                password: response.data.user.password
+                name: response.data.user.userName,
+                password: response.data.user.password,
+                uuid: response.data.user.uuid,
             })
             return {
                 token: response.data.token,
@@ -64,11 +63,10 @@ export class HttpUserGateway implements userGateway {
         if (response && response.status < 300) {
             const userRes =  new UserEntity({
                 email: response.data.user.email,
-                userName: response.data.user.userName,
-                phone_number: response.data.user.phone_number,
+                name: response.data.user.userName,
                 password: response.data.user.password,
+                uuid: response.data.user.uuid,
                 token: response.data.token,
-                avatar: response.data.user.avatar,
             })
             return {
                 token: response.data.token,

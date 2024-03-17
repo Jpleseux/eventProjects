@@ -18,7 +18,7 @@ function Login() {
     const [msg, setMsg] = useState({ msg: null, status: null });
     const [loading, setLoading] = useState(false);
     const [loginInput, setLoginInput] = useState<loginInput>({email: "", password: ""});
-    const [user, setUser] = useState<UserEntity>(new UserEntity({ email: '', userName: '', avatar: '', phone_number: '', password: '' }));
+    const [user, setUser] = useState<UserEntity>(new UserEntity({ email: '', name: '',uuid: '', password: '' }));
 
     const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;

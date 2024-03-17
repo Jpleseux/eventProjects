@@ -8,7 +8,6 @@ const factory = new CookieFactory();
 export default class AxiosAdapter implements httpClient {
     private async getHeaders() {
       const response = await factory.getCookie("user");
-
       if (response && response.token) {
         return {
           "Content-Type": "application/json",

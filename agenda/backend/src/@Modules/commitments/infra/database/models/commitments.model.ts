@@ -26,4 +26,6 @@ export class CommitmentsModel {
   event_place: string;
   @Column()
   time: string;
+  @Column()
+  user_id: string;
 }

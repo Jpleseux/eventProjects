@@ -1,0 +1,30 @@
+# Agenda de Compromissos
+
+Este é um projeto de uma aplicação de agenda de compromissos desenvolvida com NestJS e TypeORM.
+
+## Funcionalidades
+- Registro e login de usuarios
+- Cadastro de compromissos com título, data, hora e local.
+- Visualização de compromissos em um calendário interativo.
+- Exclusão de compromissos existentes.
+- Envio automático de notificações por e-mail para compromissos no dia atual.
+
+## Tecnologias Utilizadas
+
+- **NestJS**: Framework de desenvolvimento de aplicativos Node.js.
+- **TypeORM**: ORM (Object-Relational Mapping) para interagir com o banco de dados.
+- **React**: Biblioteca JavaScript para criar interfaces de usuário.
+- **FullCalendar**: Plugin de calendário para React.
+- **Nodemailer**: Módulo Node.js para envio de e-mails.
+- **Cron**: Utilizado para agendar tarefas de envio de e-mails automáticos.
+- **Postgres**: Banco de dados relacional para armazenar os compromissos e usuários.
+- **clean architecture**: No backend foi padronizado com clean architecture
+
+## Configuração do Ambiente
+## Backend
+1. **Instalação de Dependências**: Acesse o diretório do backend, use o comando `npm install` depois use `docker compose up --build`
+2. **Testes**: Após rodar o docker no diretório do backend rode o comando `npm run test`
+3. **swagger**: Para acessar a documentação da api acesse `http://localhost:3000/doc#/`
+## Frontend
+1. **Instalação de Dependências**: Acesse o diretório do frontend, use o comando `npm install` depois use `npm run dev`
+2. **URL**: A url do frontend é: `http://localhost:5173/`

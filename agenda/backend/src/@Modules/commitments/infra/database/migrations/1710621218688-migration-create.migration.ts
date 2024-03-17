@@ -44,6 +44,10 @@ export class commitments_migration1710621218688 implements MigrationInterface {
             name: 'time',
             type: 'varchar',
           },
+          {
+            name: 'user_id',
+            type: 'uuid',
+          },
         ],
       }),
     );

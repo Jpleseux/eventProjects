@@ -4,6 +4,7 @@ export type commitmentsProps = {
   title: string;
   eventPlace: string;
   uuid: string;
+  user_id: string;
 };
 export class commitmentsEntity {
   constructor(readonly props: commitmentsProps) {}
@@ -13,6 +14,9 @@ export class commitmentsEntity {
 
   gettime(): string {
     return this.props.time;
+  }
+  getUserId(): string {
+    return this.props.user_id;
   }
 
   gettitle(): string {

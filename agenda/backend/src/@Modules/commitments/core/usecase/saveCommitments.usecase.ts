@@ -7,6 +7,7 @@ export type saveCommitmentsInput = {
   time: string;
   title: string;
   eventPlace: string;
+  user_id: string;
 };
 export class saveCommitmentsUsecase {
   constructor(readonly repo: commitmentsRepositoryInterface) {}
@@ -19,6 +20,7 @@ export class saveCommitmentsUsecase {
       time: input.time,
       title: input.title,
       uuid: randomUUID(),
+      user_id: input.user_id,
     });
     await this.repo.saveCommitments(entity);
     return entity;

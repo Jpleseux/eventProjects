@@ -5,7 +5,11 @@ import { AuthorizationMiddleware } from '../middlewares/autorization.middleware'
 import { CommitmentController } from './commitment.controller';
 import { CommitmentsRepositoryTypeOrm } from '@Modules/commitments/infra/repository/commitments.repository.orm';
 import { middlewareGateway } from '@Modules/shared/infra/gateway/middleware.gateway';
+import { EmailNotificationService } from './adviceTimeService.service';
+import { ScheduleModule } from '@nestjs/schedule'; // Importe o ScheduleModule
+
 @Module({
+  imports: [ScheduleModule.forRoot()], // Importe o ScheduleModule aqui
   controllers: [CommitmentController],
   providers: [
     {
@@ -22,6 +26,7 @@ import { middlewareGateway } from '@Modules/shared/infra/gateway/middleware.gate
       },
       inject: [getDataSourceToken()],
     },
+    EmailNotificationService,
   ],
 })
 export class CommitmentModule implements NestModule {

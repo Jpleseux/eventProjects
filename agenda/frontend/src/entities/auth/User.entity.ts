@@ -1,9 +1,8 @@
 export type userProps = {
     email: string;
-    userName: string;
-    phone_number?: string;
-    avatar?: string;
+    name: string;
     password: string;
+    uuid: string;
     token?: string;
   };
   
@@ -13,19 +12,13 @@ export type userProps = {
       return this.props.email;
     }
     avatar(): string | undefined{
-      return this.props.avatar;
+      return this.props.uuid;
     }
     token(): string | undefined{
       return this.props.token;
     }
-    userName(): string {
-      return this.props.userName;
-    }
     password(): string {
       return this.props.password;
-    }
-    setUserName(userName: string) {
-      this.props.userName = userName;
     }
     setPassword(password: string) {
       this.props.password = password;
