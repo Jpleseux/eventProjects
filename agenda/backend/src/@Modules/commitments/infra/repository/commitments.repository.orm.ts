@@ -2,8 +2,8 @@ import { commitmentsRepositoryInterface } from '../../../commitments/core/commit
 import { commitmentsEntity } from '../../../commitments/core/entities/commitments.entity';
 import { DataSource } from 'typeorm';
 import { CommitmentsModel } from '../database/models/commitments.model';
-import { UserEntity } from '@Modules/auth/core/register/entities/user.entity';
-import { UserModel } from '@Modules/auth/infra/database/models/userModel.model';
+import { UserEntity } from '../../../auth/core/register/entities/user.entity';
+import { UserModel } from '../../../auth/infra/database/models/userModel.model';
 
 export class CommitmentsRepositoryTypeOrm
   implements commitmentsRepositoryInterface

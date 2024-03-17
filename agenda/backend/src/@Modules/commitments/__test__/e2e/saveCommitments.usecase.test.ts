@@ -17,6 +17,7 @@ describe('Deve testar o saveCommitmentsUsecase', () => {
       eventPlace: 'São Paulo',
       time: '07:00',
       title: 'teste',
+      user_id: 'd393125f-7b5e-4cb3-9e17-3ef0b51e4d97',
     });
     expect(output.gettitle()).toBe('teste');
     await repo.deleteCommitments(output.getuuid());
